@@ -173,30 +173,32 @@ class MainMenu {
 
         DCG.TokenSubmit.OnClicked.Add(async () => {
           const token = DCG.TokenInput.GetText();
-          if (token) {
-            const IsInGuild = await DiscordGrant_1.DiscordGrant.IsInGuild(token);
-            if (IsInGuild == 'granted') {
-              if (IS_TESTER) {
-                const HasRole = await DiscordGrant_1.DiscordGrant.HasRole(token);
-                if (HasRole) {
-                  DiscordGrant_1.DiscordGrant.TokenSetting.token = token;
-                  this.LoadRealMenu();
-                } else {
-                  this.GrantError(ModLanguage_1.ModLanguage.ModTr("DC_NO_ROLE"));
-                  this.ShowDiscordGrant();
-                }
-              } else {
-                DiscordGrant_1.DiscordGrant.TokenSetting.token = token;
-                this.LoadRealMenu();
-              }
-            } else if (IsInGuild == 'expired') {
-              this.GrantError(ModLanguage_1.ModLanguage.ModTr("DC_INVALID_TOKEN"));
-              this.ShowDiscordGrant();
-            } else if (IsInGuild == 'not_member') {
-              this.GrantError(ModLanguage_1.ModLanguage.ModTr("DC_NOT_MEMBER"));
-              this.ShowDiscordGrant();
-            }
-          }
+          this.LoadRealMenu();
+          //DC token 授權
+          // if (true) {
+          //   const IsInGuild = await DiscordGrant_1.DiscordGrant.IsInGuild(token);
+          //   if (IsInGuild == 'granted') {
+          //     if (IS_TESTER) {
+          //       const HasRole = await DiscordGrant_1.DiscordGrant.HasRole(token);
+          //       if (HasRole) {
+          //         DiscordGrant_1.DiscordGrant.TokenSetting.token = token;
+          //         this.LoadRealMenu();
+          //       } else {
+          //         this.GrantError(ModLanguage_1.ModLanguage.ModTr("DC_NO_ROLE"));
+          //         this.ShowDiscordGrant();
+          //       }
+          //     } else {
+          //       DiscordGrant_1.DiscordGrant.TokenSetting.token = token;
+          //       this.LoadRealMenu();
+          //     }
+          //   } else if (IsInGuild == 'expired') {
+          //     this.GrantError(ModLanguage_1.ModLanguage.ModTr("DC_INVALID_TOKEN"));
+          //     this.ShowDiscordGrant();
+          //   } else if (IsInGuild == 'not_member') {
+          //     this.GrantError(ModLanguage_1.ModLanguage.ModTr("DC_NOT_MEMBER"));
+          //     this.ShowDiscordGrant();
+          //   }
+          // }
         });
 
         DCG.TokenGet.OnClicked.Add(() => {
