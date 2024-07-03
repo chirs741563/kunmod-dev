@@ -618,7 +618,7 @@ class LoginController extends UiControllerBase_1.UiControllerBase {
           "enter_game_failed"
         ));
   }
-  static lol = 0;
+  static lol = 2;
   static async HandleLoginGame(e, o) {
     // banned thanks
     if (this.lol < 1) {
